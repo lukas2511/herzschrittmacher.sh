@@ -7,8 +7,4 @@ if [ "${DELAY}" = "0" ]; then
 	echo "delay is in seconds!"
 fi
 
-while true; do
-	(echo poke > /dev/herz) 2> /dev/null
-	sleep $DELAY
-done
-
+while echo poke > /dev/herz 2> /dev/null && sleep $DELAY; do :; done
